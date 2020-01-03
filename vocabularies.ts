@@ -1,6 +1,6 @@
 
 // @ts-ignore
-import { Vocabularies } from '../Inflections/Vocabularies.ts'
+import { Vocabularies } from './src/Humanizer/Inflections/Vocabularies.ts'
 
 declare global {
     interface String {
