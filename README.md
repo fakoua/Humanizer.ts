@@ -15,10 +15,10 @@ Humanizer meets all your TypeScript needs for manipulating and displaying string
 Import the Extensions:
 
 ```ts
-import "https://raw.githubusercontent.com/fakoua/Humanizer.ts/master/src/Humanizer/Extensions/ByteSize.ts"
-import "https://raw.githubusercontent.com/fakoua/Humanizer.ts/master/src/Humanizer/Extensions/Ordinalize.ts"
-import "https://raw.githubusercontent.com/fakoua/Humanizer.ts/master/src/Humanizer/Extensions/ToQuantity.ts"
-import "https://raw.githubusercontent.com/fakoua/Humanizer.ts/master/src/Humanizer/Extensions/Vocabularies.ts"
+import "https://deno.land/x/humanizer.ts/byteSize.ts"
+import "https://deno.land/x/humanizer.ts/ordinalize.ts"
+import "https://deno.land/x/humanizer.ts/toQuantity.ts"
+import "https://deno.land/x/humanizer.ts/vocabularies.ts"
 ```
 
 ## Examples
@@ -104,4 +104,3 @@ console.log(f.toString()) // -> 5.020549774169922 GB
 "man".toQuantity(1) => "1 man"
 "man".toQuantity(2) => "2 men"
 ```
-...
