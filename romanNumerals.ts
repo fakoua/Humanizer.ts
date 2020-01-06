@@ -1,5 +1,5 @@
 
-    import { RomanNumeral } from "./src/Humanizer/Numbers/RomanNumeral.ts"
+    import { RomanNumerals } from "./src/Humanizer/Numbers/RomanNumerals.ts"
 
     declare global {
         interface Number {
@@ -12,10 +12,10 @@
     }
 
     Number.prototype.toRoman = function (): string {
-        return RomanNumeral.toRoman(this)
+        return RomanNumerals.toRoman(this)
     }
     
     String.prototype.fromRoman = function (): number {
-        return RomanNumeral.fromRoman(this)
+        return RomanNumerals.fromRoman(this)
     }
     

@@ -1,7 +1,7 @@
 /// <summary>
 /// Contains extension methods for changing a number to Roman representation (ToRoman) and from Roman representation back to the number (FromRoman)
 /// </summary>
-export abstract class RomanNumeral {
+export abstract class RomanNumerals {
 
     private static readonly RomanNumerals =
         [
@@ -37,7 +37,7 @@ export abstract class RomanNumeral {
 
         let length = input.length;
 
-        if ((length == 0) || RomanNumeral.isInvalidRomanNumeral(input)) {
+        if ((length == 0) || RomanNumerals.isInvalidRomanNumeral(input)) {
             throw new Error("Empty or invalid Roman numeral string.");
         }
 
@@ -45,9 +45,9 @@ export abstract class RomanNumeral {
         let i = length;
 
         while (i > 0) {
-            let digit = RomanNumeral.romanToDigit(input[--i].toString());
+            let digit = RomanNumerals.romanToDigit(input[--i].toString());
             if (i > 0) {
-                let previousDigit = RomanNumeral.romanToDigit(input[i - 1].toString());
+                let previousDigit = RomanNumerals.romanToDigit(input[i - 1].toString());
 
                 if (previousDigit < digit) {
                     digit -= previousDigit;
@@ -63,7 +63,7 @@ export abstract class RomanNumeral {
 
     private static romanToDigit(char: string): number {
         let rtnVal = 0;
-        RomanNumeral.RomanNumerals.forEach(pair => {
+        RomanNumerals.RomanNumerals.forEach(pair => {
             if (pair.key == char) {
                 rtnVal = pair.value;
             }
@@ -88,7 +88,7 @@ export abstract class RomanNumeral {
 
         let sb = "";
 
-        RomanNumeral.RomanNumerals.forEach(pair => {
+        RomanNumerals.RomanNumerals.forEach(pair => {
             while (Math.floor(input / pair.value) > 0) {
                 sb += pair.key;
                 input -= pair.value;
@@ -99,6 +99,6 @@ export abstract class RomanNumeral {
     }
 
     private static isInvalidRomanNumeral(input: string): boolean {
-        return !RomanNumeral.ValidRomanNumeral.test(input);
+        return !RomanNumerals.ValidRomanNumeral.test(input);
     }
 }

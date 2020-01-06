@@ -1,5 +1,5 @@
 import { test, assertEquals } from "../../test_deps.ts"
-import "../../romanNumeral.ts"
+import "../../romanNumerals.ts"
 
 test(function test_toRoman() {
     assertEquals((1).toRoman(), "I")
