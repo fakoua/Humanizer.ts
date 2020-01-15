@@ -4,6 +4,7 @@ Humanizer meets all your TypeScript needs for manipulating and displaying string
 
 [![Build Status](https://api.travis-ci.com/fakoua/humanizer.ts.svg?branch=master)](https://travis-ci.com/fakoua/humanizer.ts)
 [![Build Status](https://github.com/fakoua/humanizer.ts/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/fakoua/humanizer.ts/actions)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffakoua%2FHumanizer.ts.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffakoua%2FHumanizer.ts?ref=badge_shield)
 
 ### Table of contents
 
@@ -229,3 +230,7 @@ Also the reverse operation using the `fromMetric` extension.
 "1.23k".fromMetric() => 1230
 "100m".fromMetric() => 0.1
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffakoua%2FHumanizer.ts.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffakoua%2FHumanizer.ts?ref=badge_large)
