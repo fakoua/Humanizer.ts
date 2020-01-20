@@ -2,6 +2,9 @@
 
 Humanizer meets all your TypeScript needs for manipulating and displaying strings, dates, times, timespans, numbers and quantities.
 
+[![Build Status](https://api.travis-ci.com/fakoua/humanizer.ts.svg?branch=master)](https://travis-ci.com/fakoua/humanizer.ts)
+[![Build Status](https://github.com/fakoua/humanizer.ts/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/fakoua/humanizer.ts/actions)
+
 ### Table of contents
 
 - [Usage](#usage)
