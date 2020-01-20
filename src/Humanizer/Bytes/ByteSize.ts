@@ -170,8 +170,8 @@ export class ByteSize {
     /// the largest metric prefix such that the corresponding value is greater
     ///  than or equal to one.
     /// </summary>
-    public toString(): string {
-        return this.largestWholeNumberValue() + " " + this.largestWholeNumberSymbol();
+    public toString(fixePoint: number = 2): string {
+        return this.largestWholeNumberValue().toFixed(fixePoint) + " " + this.largestWholeNumberSymbol();
     }
 
 
