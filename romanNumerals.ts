@@ -12,10 +12,10 @@
     }
 
     Number.prototype.toRoman = function (): string {
-        return RomanNumerals.toRoman(this)
+        return RomanNumerals.toRoman(this as number)
     }
     
     String.prototype.fromRoman = function (): number {
-        return RomanNumerals.fromRoman(this)
+        return RomanNumerals.fromRoman(this as string)
     }
     

@@ -10,10 +10,10 @@ declare global {
 }
 
 Number.prototype.toMetric = function (): string {
-   return MetricNumerals.toMetric(this)
+   return MetricNumerals.toMetric(this as number)
 }
 
 String.prototype.fromMetric = function (): number {
-    return MetricNumerals.fromMetric(this)
+    return MetricNumerals.fromMetric(this as string)
 }
  

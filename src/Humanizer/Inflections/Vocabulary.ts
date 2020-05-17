@@ -67,7 +67,7 @@
 
             var asSingular = this.applyRules(this._singulars, word, false);
             var asSingularAsPlural = this.applyRules(this._plurals, asSingular, false);
-            if (asSingular != null && asSingular != word && asSingular + "s" != word && asSingularAsPlural == word && result != word) {
+            if (asSingular != '' && asSingular != word && asSingular + "s" != word && asSingularAsPlural == word && result != word) {
                 return word;
             }
 
@@ -83,7 +83,7 @@
         /// <returns></returns>
         public singularize(word: string, inputIsKnownToBePlural: boolean = true, skipSimpleWords: boolean = false): string {
             var result = this.applyRules(this._singulars, word, skipSimpleWords);
-
+            
             if (inputIsKnownToBePlural) {
                 return result ?? word;
             }
@@ -95,11 +95,12 @@
                 return word;
             }
 
-            return result ?? word;
+            return result == '' ? word : result;
         }
 
         private applyRules(rules: Array<Rule>, word: string, skipFirstRule: boolean): string {
             if (word == null) {
+                //@ts-ignore
                 return null;
             }
 
@@ -110,7 +111,7 @@
             var result = word;
             var end = skipFirstRule ? 1 : 0;
             for (var i = rules.length - 1; i >= end; i--) {
-                if ((result = rules[i].apply(word)) != null) {
+                if ((result = rules[i].apply(word)) != '') {
                     break;
                 }
             }
@@ -133,7 +134,7 @@
 
         public apply(word: string): string {
             if (!this._regex.test(word)) {
-                return null;
+                return '';
             }
             return word.replace(this._regex, this._replacement)
         }

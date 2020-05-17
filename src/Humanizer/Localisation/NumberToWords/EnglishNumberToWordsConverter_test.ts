@@ -1,7 +1,7 @@
-import { test, assertEquals } from "../../../../test_deps.ts";
+import { assertEquals } from "../../../../test_deps.ts";
 import  * as N2W  from "./EnglishNumberToWordsConverter.ts";
 
-test(function test_englishNumber2Words() {
+Deno.test("test_englishNumber2Words", function () {
     assertEquals(N2W.EnglishNumberToWordsConverter.convert(1), "one")
     assertEquals(N2W.EnglishNumberToWordsConverter.convert(10), "ten")
     assertEquals(N2W.EnglishNumberToWordsConverter.convert(11), "eleven")
@@ -17,7 +17,7 @@ test(function test_englishNumber2Words() {
     assertEquals(N2W.EnglishNumberToWordsConverter.convert(1234567890), "one billion two hundred and thirty-four million five hundred and sixty-seven thousand eight hundred and ninety")
 })
 
-test(function test_englishNumber2Words_ordinal() {
+Deno.test("test_englishNumber2Words_ordinal", function () {
     assertEquals(N2W.EnglishNumberToWordsConverter.convertToOrdinal(1), "first")
     assertEquals(N2W.EnglishNumberToWordsConverter.convertToOrdinal(10), "tenth")
     assertEquals(N2W.EnglishNumberToWordsConverter.convertToOrdinal(11), "eleventh")

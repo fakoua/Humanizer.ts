@@ -1,23 +1,23 @@
-import { test, assertEquals } from "../../test_deps.ts"
+import { assertEquals } from "../../test_deps.ts"
 import "../../numberToNumbers.ts"
 
-test(function test_tens() {
+Deno.test("test_tens", function () {
     assertEquals((10).tens(), 100)
 })
 
-test(function test_hundreds() {
+Deno.test("test_hundreds", function () {
     assertEquals((512).hundreds(), 51200)
 })
 
-test(function test_thousands() {
+Deno.test("test_thousands", function () {
     assertEquals((12).thousands(), 12000)
 })
 
-test(function test_millions() {
+Deno.test("test_millions", function () {
     assertEquals((6.1).millions(), 6100000)
 })
 
-test(function test_billions() {
+Deno.test("test_billions", function () {
     assertEquals((6.1).billions(), 6100000000)
 })
 

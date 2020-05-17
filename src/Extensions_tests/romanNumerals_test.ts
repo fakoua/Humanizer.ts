@@ -1,7 +1,7 @@
-import { test, assertEquals } from "../../test_deps.ts"
+import { assertEquals } from "../../test_deps.ts"
 import "../../romanNumerals.ts"
 
-test(function test_toRoman() {
+Deno.test("test_toRoman", function () {
     assertEquals((1).toRoman(), "I")
     assertEquals((10).toRoman(), "X")
     assertEquals((400).toRoman(), "CD")
@@ -9,7 +9,7 @@ test(function test_toRoman() {
     assertEquals((3999).toRoman(), "MMMCMXCIX")
 })
 
-test(function test_fromRoman() {
+Deno.test("test_fromRoman", function () {
     assertEquals("MMMCMXCIX".fromRoman(), 3999)
     assertEquals("D".fromRoman(), 500)
     assertEquals("CD".fromRoman(), 400)

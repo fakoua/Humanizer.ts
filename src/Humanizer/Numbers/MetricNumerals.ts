@@ -225,6 +225,7 @@ export abstract class MetricNumerals
         /// <returns>A symbol or a symbol's name</returns>
         private static getUnit(symbol: string, useSymbol: boolean): number
         {
+            //@ts-ignore
             return useSymbol ? symbol.toString() : MetricNumerals.Names[symbol];
         }
 

@@ -15,21 +15,21 @@ declare global {
  * (5).Tens == 50
  */
 Number.prototype.tens = function (): number {
-    return this * 10;
+    return this as number * 10;
 }
 
 Number.prototype.hundreds = function (): number {
-    return this * 100;
+    return this as number * 100;
 }
 
 Number.prototype.thousands = function (): number {
-    return this * 1000;
+    return this as number * 1000;
 }
 
 Number.prototype.millions = function (): number {
-    return this * 1000000;
+    return this as number * 1000000;
 }
 
 Number.prototype.billions = function (): number {
-    return this * 1000000000;
+    return this as number * 1000000000;
 }

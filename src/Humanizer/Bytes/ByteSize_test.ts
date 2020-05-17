@@ -1,105 +1,105 @@
-import { test, assertEquals } from "../../../test_deps.ts";
+import { assertEquals } from "../../../test_deps.ts";
 import { ByteSize } from "./ByteSize.ts"
 
-test(function test_bytesize_fromBits() {
+Deno.test("test_bytesize_fromBits", function () {
     let result = ByteSize.fromBits(8);
     assertEquals(8, result.bits)
     assertEquals(1, result.bytes)
 })
 
-test(function test_bytesize_fromBytes() {
+Deno.test("test_bytesize_fromBytes", function () {
     let result = ByteSize.fromBytes(1.5)
     assertEquals(12, result.bits)
     assertEquals(1.5, result.bytes)
 })
 
-test(function test_bytesize_fromKilobytes() {
+Deno.test("test_bytesize_fromKilobytes", function () {
     let result = ByteSize.fromKilobytes(1.5)
     assertEquals(1536, result.bytes)
     assertEquals(1.5, result.kilobytes)
 })
 
-test(function test_bytesize_fromMegabytes() {
+Deno.test("test_bytesize_fromMegabytes", function () {
     let result = ByteSize.fromMegabytes(1.5)
     assertEquals(1572864, result.bytes)
     assertEquals(1.5, result.megabytes)
 })
 
-test(function test_bytesize_fromGigabytes() {
+Deno.test("test_bytesize_fromGigabytes", function () {
     let result = ByteSize.fromGigabytes(1.5)
     assertEquals(1610612736, result.bytes)
     assertEquals(1.5, result.gigabytes)
 })
 
-test(function test_bytesize_fromTerabytes() {
+Deno.test("test_bytesize_fromTerabytes", function () {
     let result = ByteSize.fromTerabytes(1.5)
     assertEquals(1649267441664, result.bytes)
     assertEquals(1.5, result.terabytes)
 })
 
-test(function test_bytesize_parseKilo() {
+Deno.test("test_bytesize_parseKilo", function () {
     assertEquals(ByteSize.fromKilobytes(1020), ByteSize.parse("1020KB"))
 })
 
-test(function test_bytesize_parseDecimalMegabytes() {
+Deno.test("test_bytesize_parseDecimalMegabytes", function () {
     assertEquals(ByteSize.fromMegabytes(100.5), ByteSize.parse("100.5MB"))
 })
 
-test(function test_bytesize_tryParseWorksWithLotsOfSpaces() {
+Deno.test("test_bytesize_tryParseWorksWithLotsOfSpaces", function () {
     assertEquals(ByteSize.fromKilobytes(100), ByteSize.parse(" 100 KB "))
 })
 
-test(function test_bytesize_parseBits() {
+Deno.test("test_bytesize_parseBits", function () {
     assertEquals(ByteSize.fromBits(1), ByteSize.parse("1b"))
 })
 
-test(function test_bytesize_parseBytes() {
+Deno.test("test_bytesize_parseBytes", function () {
     assertEquals(ByteSize.fromBytes(1), ByteSize.parse("1B"))
 })
 
-test(function test_bytesize_parseKilobytes() {
+Deno.test("test_bytesize_parseKilobytes", function () {
     assertEquals(ByteSize.fromKilobytes(1020), ByteSize.parse("1020KB"))
 })
 
-test(function test_bytesize_parseMegabytes() {
+Deno.test("test_bytesize_parseMegabytes", function () {
     assertEquals(ByteSize.fromMegabytes(1020), ByteSize.parse("1020MB"))
 })
 
-test(function test_bytesize_parseGigabytes() {
+Deno.test("test_bytesize_parseGigabytes", function () {
     assertEquals(ByteSize.fromGigabytes(805), ByteSize.parse("805GB"))
 })
 
-test(function test_bytesize_parseTerabytes() {
+Deno.test("test_bytesize_parseTerabytes", function () {
     assertEquals(ByteSize.fromTerabytes(803), ByteSize.parse("803TB"))
 })
 
-test(function test_bytesize_add() {
+Deno.test("test_bytesize_add", function () {
     let size1 = ByteSize.fromBytes(1)
     let result = size1.add(size1);
     assertEquals(2, result.bytes)
     assertEquals(16, result.bits)
 })
 
-test(function test_bytesize_addBits() {
+Deno.test("test_bytesize_addBits", function () {
     var size = ByteSize.fromBytes(1).addBits(8);
     assertEquals(2, size.bytes)
     assertEquals(16, size.bits)
 })
 
-test(function test_bytesize_addBytes() {
+Deno.test("test_bytesize_addBytes", function () {
     var size = ByteSize.fromBytes(1).addBytes(1);
     assertEquals(2, size.bytes)
     assertEquals(16, size.bits)
 })
 
-test(function test_bytesize_addKilobytes() {
+Deno.test("test_bytesize_addKilobytes", function () {
     var size = ByteSize.fromKilobytes(2).addKilobytes(2)
     assertEquals(4 * 1024 * 8, size.bits)
     assertEquals(4 * 1024, size.bytes)
     assertEquals(4, size.kilobytes)
 })
 
-test(function test_bytesize_addMegabytes() {
+Deno.test("test_bytesize_addMegabytes", function () {
     var size = ByteSize.fromMegabytes(2).addMegabytes(2)
     assertEquals(4 * 1024 * 1024 * 8, size.bits)
     assertEquals(4 * 1024 * 1024, size.bytes)
@@ -107,7 +107,7 @@ test(function test_bytesize_addMegabytes() {
     assertEquals(4, size.megabytes)
 })
 
-test(function test_bytesize_addGigabytes() {
+Deno.test("test_bytesize_addGigabytes", function () {
     var size = ByteSize.fromGigabytes(2).addGigabytes(2)
     assertEquals(4 * 1024 * 1024 * 1024 * 8, size.bits)
     assertEquals(4 * 1024 * 1024 * 1024, size.bytes)
@@ -116,7 +116,7 @@ test(function test_bytesize_addGigabytes() {
     assertEquals(4, size.gigabytes)
 })
 
-test(function test_bytesize_addTerabytes() {
+Deno.test("test_bytesize_addTerabytes", function () {
     var size = ByteSize.fromTerabytes(2).addTerabytes(2)
     assertEquals(4 * 1024 * 1024 * 1024 * 1024 * 8, size.bits)
     assertEquals(4 * 1024 * 1024 * 1024 *1024, size.bytes)
@@ -126,7 +126,7 @@ test(function test_bytesize_addTerabytes() {
     assertEquals(4, size.terabytes)
 })
 
-test(function test_bytesize_subtract() {
+Deno.test("test_bytesize_subtract", function () {
     var size = ByteSize.fromBytes(4).subtract(ByteSize.fromBytes(2));
     assertEquals(16, size.bits)
     assertEquals(2, size.bytes)

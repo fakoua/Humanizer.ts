@@ -1,10 +1,10 @@
-import { test, assertEquals } from "../../test_deps.ts"
+import {  assertEquals } from "../../test_deps.ts"
 import "../../numberToWords.ts"
 
-test(function test_toWords() {
+Deno.test("test_toWords", function () {
     assertEquals((1).toWords(), "one")
 })
 
-test(function test_toOrdinalWords() {
+Deno.test("test_toOrdinalWords", function () {
     assertEquals((15).toOrdinalWords(), "fifteenth")
 })

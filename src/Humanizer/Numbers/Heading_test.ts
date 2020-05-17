@@ -1,7 +1,7 @@
-import { test, assertEquals } from "../../../test_deps.ts"
+import {  assertEquals } from "../../../test_deps.ts"
 import * as h from "./Heading.ts"
 
-test(function test_toHeadingShort() {
+Deno.test("test_toHeadingShort", function () {
     assertEquals(h.Heading.toHeading(0), "N")
     assertEquals(h.Heading.toHeading(11.2), "N")
     assertEquals(h.Heading.toHeading(11.3), "NNE")
@@ -17,7 +17,7 @@ test(function test_toHeadingShort() {
     assertEquals(h.Heading.toHeading(348.7), "NNW")
 })
 
-test(function test_toHeading_Full() {
+Deno.test("test_toHeading_Full", function () {
     assertEquals(h.Heading.toHeading(0, h.HeadingStyle.Full), "north")
     assertEquals(h.Heading.toHeading(22.5, h.HeadingStyle.Full), "north-northeast")
     assertEquals(h.Heading.toHeading(45, h.HeadingStyle.Full), "northeast")
@@ -25,7 +25,7 @@ test(function test_toHeading_Full() {
     assertEquals(h.Heading.toHeading(720, h.HeadingStyle.Full), "north")
 })
 
-test(function test_fromHeading_short() {
+Deno.test("test_fromHeading_short", function () {
     assertEquals(h.Heading.fromAbbreviatedHeading("N"), 0)
     assertEquals(h.Heading.fromAbbreviatedHeading("NNE"), 22.5)
     assertEquals(h.Heading.fromAbbreviatedHeading("NE"), 45)
@@ -33,7 +33,7 @@ test(function test_fromHeading_short() {
     assertEquals(h.Heading.fromAbbreviatedHeading("WSW"), 247.5)
 })
 
-test(function test_toHeadingArrow() {
+Deno.test("test_toHeadingArrow", function () {
     assertEquals(h.Heading.toHeadingArrow(0), "↑");
     assertEquals(h.Heading.toHeadingArrow(11.2), "↑");
     assertEquals(h.Heading.toHeadingArrow(11.3), "↑");

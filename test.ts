@@ -7,8 +7,3 @@ import "./src/Extensions_tests/numberToWords_test.ts"
 import "./src/Extensions_tests/romanNumerals_test.ts"
 import "./src/Extensions_tests/numberToNumbers_test.ts"
 import "./src/Extensions_tests/metricNumerals_test.ts"
-
-
-import { runTests } from "./test_deps.ts"
-
-runTests()

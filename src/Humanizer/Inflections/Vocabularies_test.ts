@@ -1,19 +1,19 @@
-import { test, assertEquals } from "../../../test_deps.ts";
+import { assertEquals } from "../../../test_deps.ts";
 import { Vocabularies } from './Vocabularies.ts'
 
-test(function test_vocabularies_singularizeSkipSimpleWords() {
+Deno.test("test_vocabularies_singularizeSkipSimpleWords", function () {
     assertEquals("tires", Vocabularies.Default().singularize("tires", false, true))
     assertEquals("body", Vocabularies.Default().singularize("bodies", false, true))
     assertEquals("traxxas", Vocabularies.Default().singularize("traxxas", false, true))
 })
 
-test(function test_vocabularies_pluralize() {
+Deno.test("test_vocabularies_pluralize", function () {
     for (const x of GetEnumerator()) {
         assertEquals(x[1], Vocabularies.Default().pluralize(x[0]))
     }
 })
 
-test(function test_vocabularies_singularize() {
+Deno.test("test_vocabularies_singularize", function () {
     for (const x of GetEnumerator()) {
         assertEquals(x[0], Vocabularies.Default().singularize(x[1]))
     }
