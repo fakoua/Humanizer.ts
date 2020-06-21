@@ -1,0 +1,20 @@
+{
+    "name": "Humanizer.ts",
+    "description": "Humanizer meets all your TypeScript needs for manipulating and displaying strings, dates, times, timespans, numbers and quantities.",
+    "stable": true,
+    "files": [
+        "./mod.ts",
+        "./byteSize.ts",
+        "./metricNumerals.ts",
+        "./numberToNumbers.ts",
+        "./numberToWords.ts",
+        "./ordinalze.ts",
+        "./README.md",
+        "./romanNumerals.ts",
+        "./test.ts",
+        "./test_deps.ts",
+        "./toQuantity.ts",
+        "./vocabularies.ts",
+        "./src/**/*"
+    ]
+}
