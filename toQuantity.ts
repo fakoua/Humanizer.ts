@@ -5,7 +5,7 @@ import './numberToWords.ts'
 
 declare global {
     interface String {
-        toQuantity(quantity: number, showQuantityAs: ShowQuantityAs): string
+        toQuantity(quantity: number, showQuantityAs?: ShowQuantityAs): string
     }
 }
 
