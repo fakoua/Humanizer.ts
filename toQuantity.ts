@@ -1,7 +1,7 @@
 
 // @ts-ignore
-import { Vocabularies } from './src/Humanizer/Inflections/Vocabularies.ts'
-import './numberToWords.ts'
+import { Vocabularies } from "./src/Humanizer/Inflections/Vocabularies.ts"
+import "./numberToWords.ts"
 
 declare global {
     interface String {
@@ -34,15 +34,15 @@ export enum ShowQuantityAs {
  * @returns {string} - The converted value
  */
 String.prototype.toQuantity = function (quantity: number, showQuantityAs: ShowQuantityAs = ShowQuantityAs.Numeric): string {
-    let transformedInput = quantity == 1
+    const transformedInput = quantity === 1
     ? Vocabularies.Default().singularize(this as string, false)
     : Vocabularies.Default().pluralize(this as string, false)
 
-    if (showQuantityAs == ShowQuantityAs.None) {
+    if (showQuantityAs === ShowQuantityAs.None) {
         return transformedInput;
     }
 
-    if (showQuantityAs == ShowQuantityAs.Numeric) {
+    if (showQuantityAs === ShowQuantityAs.Numeric) {
         return `${quantity} ${transformedInput}`
     }
     return `${quantity.toWords()} ${transformedInput}`

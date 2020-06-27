@@ -1,24 +1,24 @@
-//The MIT License (MIT)
+// The MIT License (MIT)
 
-//Copyright (c) 2013-2014 Omar Khudeira (http://omar.io)
+// Copyright (c) 2013-2014 Omar Khudeira (http://omar.io)
 
-//Permission is hereby granted, free of charge, to any person obtaining a copy
-//of this software and associated documentation files (the "Software"), to deal
-//in the Software without restriction, including without limitation the rights
-//to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//copies of the Software, and to permit persons to whom the Software is
-//furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 
-//The above copyright notice and this permission notice shall be included in
-//all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 
-//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 export class ByteSize {
 
@@ -182,7 +182,7 @@ export class ByteSize {
     /// value is greater than or equal to one.
     /// </summary>
     public toFullWords(): string {
-        var byteSizeAsFullWords = this.toString()
+        const byteSizeAsFullWords = this.toString()
 
         // If there is more than one unit, make the word plural
         return this.largestWholeNumberValue() > 1 ? byteSizeAsFullWords + "s" : byteSizeAsFullWords;
@@ -252,42 +252,40 @@ export class ByteSize {
 
         // Acquiring culture specific decimal separator
 
-        let decSep = "." //Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+        const decSep = "." // Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
 
         // Pick first non-digit number
         for (num = 0; num < s.length; num++) {
-            if (!(!isNaN(Number(s[num])) || s[num] == decSep)) {
+            if (!(!isNaN(Number(s[num])) || s[num] === decSep)) {
                 found = true;
                 break;
             }
         }
 
-        if (found == false) {
-            return new ByteSize(1); //TODO: should raize error
+        if (found === false) {
+            return new ByteSize(1); // TODO: should raize error
         }
 
-        let lastNumber = num;
+        const lastNumber = num;
         // Cut the input string in half
-        var numberPart = s.substring(0, lastNumber).trim()
-        var sizePart = s.substring(lastNumber, s.length).trim()
+        const numberPart = s.substring(0, lastNumber).trim()
+        const sizePart = s.substring(lastNumber, s.length).trim()
         // Get the numeric part
         if (isNaN(Number(numberPart))) {
-            return new ByteSize(2); //TODO: should raize error
+            return new ByteSize(2); // TODO: should raize error
         }
 
-        let nb = Number(numberPart)
+        const nb = Number(numberPart)
         // Get the magnitude part
         switch (sizePart.toUpperCase()) {
             case ByteSize.ByteSymbol:
-                if (sizePart == ByteSize.BitSymbol) { // Bits
-                    if (nb % 1 != 0) // Can't have partial bits
-                    {
-                        return new ByteSize(3); //TODO: should raize error
+                if (sizePart === ByteSize.BitSymbol) { // Bits
+                    if (nb % 1 !== 0) {
+                        return new ByteSize(3); // TODO: should raize error
                     }
 
                     result = ByteSize.fromBits(nb);
-                }
-                else { // Bytes
+                } else { // Bytes
                     result = ByteSize.fromBytes(nb);
                 }
                 break;

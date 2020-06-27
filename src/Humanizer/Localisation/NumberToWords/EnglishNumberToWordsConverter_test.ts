@@ -1,5 +1,5 @@
 import { assertEquals } from "../../../../test_deps.ts";
-import  * as N2W  from "./EnglishNumberToWordsConverter.ts";
+import * as N2W from "./EnglishNumberToWordsConverter.ts";
 
 Deno.test("test_englishNumber2Words", function () {
     assertEquals(N2W.EnglishNumberToWordsConverter.convert(1), "one")

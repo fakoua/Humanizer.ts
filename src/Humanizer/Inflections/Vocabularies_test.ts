@@ -1,5 +1,5 @@
 import { assertEquals } from "../../../test_deps.ts";
-import { Vocabularies } from './Vocabularies.ts'
+import { Vocabularies } from "./Vocabularies.ts"
 
 Deno.test("test_vocabularies_singularizeSkipSimpleWords", function () {
     assertEquals("tires", Vocabularies.Default().singularize("tires", false, true))
@@ -217,6 +217,6 @@ function* GetEnumerator() {
     yield ["roomie", "roomies"];
     yield ["smoothie", "smoothies"];
 
-    //Issue #789
+    // Issue #789
     yield ["cache", "caches"];
 }

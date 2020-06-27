@@ -1,5 +1,4 @@
-export abstract class MetricNumerals
-    {
+export abstract class MetricNumerals {
         private static readonly BigLimit = 1E+27;
         private static readonly SmallLimit = 1E-27;
 
@@ -9,8 +8,8 @@ export abstract class MetricNumerals
         /// </summary>
         private static readonly Symbols =
                 [
-                    [ 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y' ],
-                    [ 'm', 'μ', 'n', 'p', 'f', 'a', 'z', 'y' ]
+                    [ "k", "M", "G", "T", "P", "E", "Z", "Y" ],
+                    [ "m", "μ", "n", "p", "f", "a", "z", "y" ]
                 ];
 
         /// <summary>
@@ -25,22 +24,22 @@ export abstract class MetricNumerals
         /// </remarks>
         private static readonly Names = 
         [
-            {key: 'Y', value: "yotta" },
-            {key: 'Z', value: "zetta" },
-            {key: 'E', value: "exa" },
-            {key: 'P', value: "peta" },
-            {key: 'T', value: "tera" },
-            {key: 'G', value: "giga" },
-            {key: 'M', value: "mega" },
-            {key: 'k', value: "kilo" },
-            {key: 'm', value: "milli" },
-            {key: 'μ', value: "micro" },
-            {key: 'n', value: "nano" },
-            {key: 'p', value: "pico" },
-            {key: 'f', value: "femto" },
-            {key: 'a', value: "atto" },
-            {key: 'z', value: "zepto" },
-            {key: 'y', value: "yocto" }
+            {key: "Y", value: "yotta" },
+            {key: "Z", value: "zetta" },
+            {key: "E", value: "exa" },
+            {key: "P", value: "peta" },
+            {key: "T", value: "tera" },
+            {key: "G", value: "giga" },
+            {key: "M", value: "mega" },
+            {key: "k", value: "kilo" },
+            {key: "m", value: "milli" },
+            {key: "μ", value: "micro" },
+            {key: "n", value: "nano" },
+            {key: "p", value: "pico" },
+            {key: "f", value: "femto" },
+            {key: "a", value: "atto" },
+            {key: "z", value: "zepto" },
+            {key: "y", value: "yocto" }
    ];
 
         /// <summary>
@@ -59,8 +58,7 @@ export abstract class MetricNumerals
         /// </code>
         /// </example>
         /// <returns>A number after a conversion from a Metric representation.</returns>
-        public static fromMetric(input: string): number
-        {
+        public static fromMetric(input: string): number {
             input = MetricNumerals.cleanRepresentation(input);
             return MetricNumerals.buildNumber(input, input[input.length - 1]);
         }
@@ -84,15 +82,12 @@ export abstract class MetricNumerals
         /// </code>
         /// </example>
         /// <returns>A valid Metric representation</returns>
-        public static toMetric(input: number, hasSpace: boolean = false, useSymbol: boolean = true, decimals?: number): string
-        {
-            if (input == 0)
-            {
+        public static toMetric(input: number, hasSpace: boolean = false, useSymbol: boolean = true, decimals?: number): string {
+            if (input === 0) {
                 return input.toString();
             }
 
-            if (MetricNumerals.isOutOfRange(input))
-            {
+            if (MetricNumerals.isOutOfRange(input)) {
                 throw new Error("ArgumentOutOfRangeException")
             }
 
@@ -104,17 +99,14 @@ export abstract class MetricNumerals
         /// </summary>
         /// <param name="input">Metric representation to clean</param>
         /// <returns>A cleaned representation</returns>
-        private static cleanRepresentation(input: string): string
-        {
-            if (input == null)
-            {
+        private static cleanRepresentation(input: string): string {
+            if (input == null) {
                 throw new Error("ArgumentNullException")
             }
 
             input = input.trim();
             input = MetricNumerals.replaceNameBySymbol(input);
-            if (input.length == 0 || MetricNumerals.isInvalidMetricNumeral(input))
-            {
+            if (input.length === 0 || MetricNumerals.isInvalidMetricNumeral(input)) {
                 throw new Error("Empty or invalid Metric string")
             }
 
@@ -127,8 +119,7 @@ export abstract class MetricNumerals
         /// <param name="input">A Metric representation to parse to a number</param>
         /// <param name="last">The last character of input</param>
         /// <returns>A number build from a Metric representation</returns>
-        private static buildNumber(input: string, last: string): number
-        {
+        private static buildNumber(input: string, last: string): number {
             return MetricNumerals.isLetter(last)
                 ? MetricNumerals.buildMetricNumber(input, last)
                 : Number(input);
@@ -144,10 +135,9 @@ export abstract class MetricNumerals
         /// <param name="input">A Metric representation to parse to a number</param>
         /// <param name="last">The last character of input</param>
         /// <returns>A number build from a Metric representation</returns>
-        private static buildMetricNumber(input: string, last: string): number
-        {
-            let num = Number(input.substring(0, input.length-1))
-            let expo = MetricNumerals.Symbols[0].indexOf(last) >= 0 ? 
+        private static buildMetricNumber(input: string, last: string): number {
+            const num = Number(input.substring(0, input.length - 1))
+            const expo = MetricNumerals.Symbols[0].indexOf(last) >= 0 ? 
                         MetricNumerals.getExponent(MetricNumerals.Symbols[0], last) :
                         -MetricNumerals.getExponent(MetricNumerals.Symbols[1], last);
 
@@ -163,9 +153,8 @@ export abstract class MetricNumerals
         /// </summary>
         /// <param name="input">Metric representation with a name or a symbol</param>
         /// <returns>A metric representation with a symbol</returns>
-        private static replaceNameBySymbol(input: string): string
-        {
-            MetricNumerals.Names.map((item, index)=> {
+        private static replaceNameBySymbol(input: string): string {
+            MetricNumerals.Names.map((item, index) => {
                 input = input.replace(item.value, item.key)
             })
             return input;
@@ -179,14 +168,12 @@ export abstract class MetricNumerals
         /// <param name="useSymbol">True will use symbol instead of name</param>
         /// <param name="decimals">If not null it is the numbers of decimals to round the number to</param>
         /// <returns>A number in a Metric representation</returns>
-        private static buildRepresentation(input: number, hasSpace: boolean, useSymbol: boolean, decimals?: number): string
-        {
-            var exponent = Math.floor(Math.log10(Math.abs(input)) / 3);
+        private static buildRepresentation(input: number, hasSpace: boolean, useSymbol: boolean, decimals?: number): string {
+            const exponent = Math.floor(Math.log10(Math.abs(input)) / 3);
 
-            if (exponent != 0) return MetricNumerals.buildMetricRepresentation(input, exponent, hasSpace, useSymbol, decimals);
-            var representation = decimals ? Math.round(input).toString() : input.toString();
-            if (hasSpace)
-            {
+            if (exponent !== 0) { return MetricNumerals.buildMetricRepresentation(input, exponent, hasSpace, useSymbol, decimals); }
+            let representation = decimals ? Math.round(input).toString() : input.toString();
+            if (hasSpace) {
                 representation += " ";
             }
             return representation;
@@ -201,15 +188,14 @@ export abstract class MetricNumerals
         /// <param name="useSymbol">True will use symbol instead of name</param>
         /// <param name="decimals">If not null it is the numbers of decimals to round the number to</param>
         /// <returns>A number in a Metric representation</returns>
-        private static buildMetricRepresentation(input: number, exponent: number, hasSpace: boolean, useSymbol: boolean, decimals?: number): string
-        {
-            var number = input * Math.pow(1000, -exponent);
-            if (decimals)
-            {
+        private static buildMetricRepresentation(input: number,
+            exponent: number, hasSpace: boolean, useSymbol: boolean, decimals?: number): string {
+            let number = input * Math.pow(1000, -exponent);
+            if (decimals) {
                 number = Math.round(number);
             }
 
-            var symbol = Math.sign(exponent) == 1
+            const symbol = Math.sign(exponent) === 1
                 ? MetricNumerals.Symbols[0][exponent - 1]
                 : MetricNumerals.Symbols[1][-exponent - 1];
             return number
@@ -223,9 +209,8 @@ export abstract class MetricNumerals
         /// <param name="symbol">The symbol linked to the unit</param>
         /// <param name="useSymbol">True will use symbol instead of name</param>
         /// <returns>A symbol or a symbol's name</returns>
-        private static getUnit(symbol: string, useSymbol: boolean): number
-        {
-            //@ts-ignore
+        private static getUnit(symbol: string, useSymbol: boolean): number {
+            // @ts-ignore
             return useSymbol ? symbol.toString() : MetricNumerals.Names[symbol];
         }
 
@@ -234,8 +219,7 @@ export abstract class MetricNumerals
         /// </summary>
         /// <param name="input">A Metric representation who might be out of the valid range.</param>
         /// <returns>True if input is out of the valid range.</returns>
-        private static isOutOfRange(input: number): boolean
-        {
+        private static isOutOfRange(input: number): boolean {
             // bool outside(double min, double max) => !(max > input && input > min);
 
             // return (Math.Sign(input) == 1 && outside(SmallLimit, BigLimit))
@@ -253,11 +237,10 @@ export abstract class MetricNumerals
         /// </remarks>
         /// <param name="input">A string who might contain a invalid Metric representation.</param>
         /// <returns>True if input is not a valid Metric representation.</returns>
-        private static isInvalidMetricNumeral(input: string): boolean
-        {
-            let index = input.length-1;
-            let last = input[index]
-            let isSymbol = MetricNumerals.Symbols[0].indexOf(last) >=0 || MetricNumerals.Symbols[1].indexOf(last) >=0;
+        private static isInvalidMetricNumeral(input: string): boolean {
+            const index = input.length - 1;
+            const last = input[index]
+            const isSymbol = MetricNumerals.Symbols[0].indexOf(last) >= 0 || MetricNumerals.Symbols[1].indexOf(last) >= 0;
             if (!isSymbol) {
                 return true;
             }

@@ -1,5 +1,5 @@
 import { assertEquals } from "../../../test_deps.ts";
-import * as ord from './Ordinalize.ts'
+import * as ord from "./Ordinalize.ts"
 
 Deno.test("test_ordinalize_string", function () {
     assertEquals(ord.convert(0, "0"), "0th")

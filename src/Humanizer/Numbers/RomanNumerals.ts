@@ -1,5 +1,6 @@
 /// <summary>
-/// Contains extension methods for changing a number to Roman representation (ToRoman) and from Roman representation back to the number (FromRoman)
+/// Contains extension methods for changing a number to Roman representation (ToRoman) and from Roman representation back
+/// to the number (FromRoman)
 /// </summary>
 export abstract class RomanNumerals {
 
@@ -35,9 +36,9 @@ export abstract class RomanNumerals {
 
         input = input.trim().toUpperCase()
 
-        let length = input.length;
+        const length = input.length;
 
-        if ((length == 0) || RomanNumerals.isInvalidRomanNumeral(input)) {
+        if ((length === 0) || RomanNumerals.isInvalidRomanNumeral(input)) {
             throw new Error("Empty or invalid Roman numeral string.");
         }
 
@@ -47,7 +48,7 @@ export abstract class RomanNumerals {
         while (i > 0) {
             let digit = RomanNumerals.romanToDigit(input[--i].toString());
             if (i > 0) {
-                let previousDigit = RomanNumerals.romanToDigit(input[i - 1].toString());
+                const previousDigit = RomanNumerals.romanToDigit(input[i - 1].toString());
 
                 if (previousDigit < digit) {
                     digit -= previousDigit;
@@ -64,7 +65,7 @@ export abstract class RomanNumerals {
     private static romanToDigit(char: string): number {
         let rtnVal = 0;
         RomanNumerals.RomanNumerals.forEach(pair => {
-            if (pair.key == char) {
+            if (pair.key === char) {
                 rtnVal = pair.value;
             }
         });

@@ -2,37 +2,37 @@ import { assertEquals } from "../../../test_deps.ts";
 import { ByteSize } from "./ByteSize.ts"
 
 Deno.test("test_bytesize_fromBits", function () {
-    let result = ByteSize.fromBits(8);
+    const result = ByteSize.fromBits(8);
     assertEquals(8, result.bits)
     assertEquals(1, result.bytes)
 })
 
 Deno.test("test_bytesize_fromBytes", function () {
-    let result = ByteSize.fromBytes(1.5)
+    const result = ByteSize.fromBytes(1.5)
     assertEquals(12, result.bits)
     assertEquals(1.5, result.bytes)
 })
 
 Deno.test("test_bytesize_fromKilobytes", function () {
-    let result = ByteSize.fromKilobytes(1.5)
+    const result = ByteSize.fromKilobytes(1.5)
     assertEquals(1536, result.bytes)
     assertEquals(1.5, result.kilobytes)
 })
 
 Deno.test("test_bytesize_fromMegabytes", function () {
-    let result = ByteSize.fromMegabytes(1.5)
+    const result = ByteSize.fromMegabytes(1.5)
     assertEquals(1572864, result.bytes)
     assertEquals(1.5, result.megabytes)
 })
 
 Deno.test("test_bytesize_fromGigabytes", function () {
-    let result = ByteSize.fromGigabytes(1.5)
+    const result = ByteSize.fromGigabytes(1.5)
     assertEquals(1610612736, result.bytes)
     assertEquals(1.5, result.gigabytes)
 })
 
 Deno.test("test_bytesize_fromTerabytes", function () {
-    let result = ByteSize.fromTerabytes(1.5)
+    const result = ByteSize.fromTerabytes(1.5)
     assertEquals(1649267441664, result.bytes)
     assertEquals(1.5, result.terabytes)
 })
@@ -74,33 +74,33 @@ Deno.test("test_bytesize_parseTerabytes", function () {
 })
 
 Deno.test("test_bytesize_add", function () {
-    let size1 = ByteSize.fromBytes(1)
-    let result = size1.add(size1);
+    const size1 = ByteSize.fromBytes(1)
+    const result = size1.add(size1);
     assertEquals(2, result.bytes)
     assertEquals(16, result.bits)
 })
 
 Deno.test("test_bytesize_addBits", function () {
-    var size = ByteSize.fromBytes(1).addBits(8);
+    const size = ByteSize.fromBytes(1).addBits(8);
     assertEquals(2, size.bytes)
     assertEquals(16, size.bits)
 })
 
 Deno.test("test_bytesize_addBytes", function () {
-    var size = ByteSize.fromBytes(1).addBytes(1);
+    const size = ByteSize.fromBytes(1).addBytes(1);
     assertEquals(2, size.bytes)
     assertEquals(16, size.bits)
 })
 
 Deno.test("test_bytesize_addKilobytes", function () {
-    var size = ByteSize.fromKilobytes(2).addKilobytes(2)
+    const size = ByteSize.fromKilobytes(2).addKilobytes(2)
     assertEquals(4 * 1024 * 8, size.bits)
     assertEquals(4 * 1024, size.bytes)
     assertEquals(4, size.kilobytes)
 })
 
 Deno.test("test_bytesize_addMegabytes", function () {
-    var size = ByteSize.fromMegabytes(2).addMegabytes(2)
+    const size = ByteSize.fromMegabytes(2).addMegabytes(2)
     assertEquals(4 * 1024 * 1024 * 8, size.bits)
     assertEquals(4 * 1024 * 1024, size.bytes)
     assertEquals(4 * 1024, size.kilobytes)
@@ -108,26 +108,26 @@ Deno.test("test_bytesize_addMegabytes", function () {
 })
 
 Deno.test("test_bytesize_addGigabytes", function () {
-    var size = ByteSize.fromGigabytes(2).addGigabytes(2)
+    const size = ByteSize.fromGigabytes(2).addGigabytes(2)
     assertEquals(4 * 1024 * 1024 * 1024 * 8, size.bits)
     assertEquals(4 * 1024 * 1024 * 1024, size.bytes)
-    assertEquals(4 * 1024 *1024, size.kilobytes)
+    assertEquals(4 * 1024 * 1024, size.kilobytes)
     assertEquals(4 * 1024, size.megabytes)
     assertEquals(4, size.gigabytes)
 })
 
 Deno.test("test_bytesize_addTerabytes", function () {
-    var size = ByteSize.fromTerabytes(2).addTerabytes(2)
+    const size = ByteSize.fromTerabytes(2).addTerabytes(2)
     assertEquals(4 * 1024 * 1024 * 1024 * 1024 * 8, size.bits)
-    assertEquals(4 * 1024 * 1024 * 1024 *1024, size.bytes)
-    assertEquals(4 * 1024 *1024 * 1024, size.kilobytes)
+    assertEquals(4 * 1024 * 1024 * 1024 * 1024, size.bytes)
+    assertEquals(4 * 1024 * 1024 * 1024, size.kilobytes)
     assertEquals(4 * 1024 * 1024, size.megabytes)
     assertEquals(4 * 1024, size.gigabytes)
     assertEquals(4, size.terabytes)
 })
 
 Deno.test("test_bytesize_subtract", function () {
-    var size = ByteSize.fromBytes(4).subtract(ByteSize.fromBytes(2));
+    const size = ByteSize.fromBytes(4).subtract(ByteSize.fromBytes(2));
     assertEquals(16, size.bits)
     assertEquals(2, size.bytes)
 })
