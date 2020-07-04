@@ -2,21 +2,29 @@
 
 Humanizer meets all your TypeScript needs for manipulating and displaying strings, dates, times, timespans, numbers and quantities.
 
-[![Build Status](https://api.travis-ci.com/fakoua/humanizer.ts.svg?branch=master)](https://travis-ci.com/fakoua/humanizer.ts)
-[![Build Status](https://github.com/fakoua/humanizer.ts/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/fakoua/humanizer.ts/actions)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffakoua%2FHumanizer.ts.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffakoua%2FHumanizer.ts?ref=badge_shield)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/fakoua/Humanizer.ts?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/fakoua/Humanizer.ts?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/fakoua/Humanizer.ts?style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/fakoua/Humanizer.ts/Deno%20CI?style=for-the-badge)
 
 ### Table of contents
 
-- [Usage](#usage)
-- [ByteSize](#bytesize)
-- [Vocabularies](#vocabularies)
-- [Ordinalize](#ordinalize)
-- [ToQuantity](#toquantity)
-- [Number to numbers](#number_to_numbers)
-- [Number to words](#number_to_words)
-- [Roman numerals](#roman_numerals)
-- [Metric numarals](#metric_numerals)
+- [Humanizer.ts](#humanizerts)
+    - [Table of contents](#table-of-contents)
+  - [<a id="usage">Usage</a>](#usage)
+  - [Examples](#examples)
+  - [<a id="bytesize">ByteSize</a>](#bytesize)
+  - [<a id="vocabularies">Vocabularies</a>](#vocabularies)
+    - [Pluralize](#pluralize)
+    - [Singularize](#singularize)
+  - [<a id="ordinalize">Ordinalize</a>](#ordinalize)
+  - [<a id="toquantity">ToQuantity</a>](#toquantity)
+  - [<a id="number_to_numbers">Number to numbers</a>](#number-to-numbers)
+  - [<a id="number_to_words">Number to words</a>](#number-to-words)
+  - [Number to ordinal words](#number-to-ordinal-words)
+  - [<a id="roman_numerals">Roman Numerals</a>](#roman-numerals)
+  - [<a id="metric_numerals">Metric numerals</a>](#metric-numerals)
+  - [License](#license)
 
 ## <a id="usage">Usage</a>
 
