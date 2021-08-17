@@ -1,5 +1,5 @@
 
-import { ShowQuantityAs } from "https://deno.land/x/humanizer.ts/toQuantity.ts"
+import { ShowQuantityAs } from "https://deno.land/x/humanizer/toQuantity.ts"
 
 console.log("case".toQuantity(0))
 console.log("case".toQuantity(1))

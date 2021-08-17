@@ -1,4 +1,4 @@
-# Humanizer.ts
+https://deno.land/x/humanizerhttps://deno.land/x/humanizerhttps://deno.land/x/humanizerhttps://deno.land/x/humanizerhttps://deno.land/x/humanizer# Humanizer.ts
 
 Humanizer meets all your TypeScript needs for manipulating and displaying strings, dates, times, timespans, numbers and quantities.
 
