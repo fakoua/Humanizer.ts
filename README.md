@@ -31,20 +31,20 @@ Humanizer meets all your TypeScript needs for manipulating and displaying string
 Import the Extensions:
 
 ```ts
-import "https://deno.land/x/humanizer.ts/byteSize.ts"
-import "https://deno.land/x/humanizer.ts/vocabularies.ts"
-import "https://deno.land/x/humanizer.ts/ordinalize.ts"
-import "https://deno.land/x/humanizer.ts/toQuantity.ts"
-import "https://deno.land/x/humanizer.ts/numberToNumbers.ts"
-import "https://deno.land/x/humanizer.ts/numberToWords.ts"
-import "https://deno.land/x/humanizer.ts/romanNumerals.ts"
-import "https://deno.land/x/humanizer.ts/metricNumerals.ts"
+import "https://deno.land/x/humanizer/byteSize.ts"
+import "https://deno.land/x/humanizer/vocabularies.ts"
+import "https://deno.land/x/humanizer/ordinalize.ts"
+import "https://deno.land/x/humanizer/toQuantity.ts"
+import "https://deno.land/x/humanizer/numberToNumbers.ts"
+import "https://deno.land/x/humanizer/numberToWords.ts"
+import "https://deno.land/x/humanizer/romanNumerals.ts"
+import "https://deno.land/x/humanizer/metricNumerals.ts"
 ```
 
 ## Examples
 
 ```ts
-import "https://deno.land/x/humanizer.ts/byteSize.ts"
+import "https://deno.land/x/humanizer/byteSize.ts"
 
 let result = (10).megabytes().toString()
 console.log(result) // -> 10 MB
@@ -57,7 +57,7 @@ Quite a few changes and additions are made on `ByteSize` to make the interaction
 Here is a few examples of how you can convert from numbers to byte sizes and between size magnitudes:
 
 ```ts
-import "https://deno.land/x/humanizer.ts/byteSize.ts"
+import "https://deno.land/x/humanizer/byteSize.ts"
 
 let fileSize = (10).kilobytes()
 console.log(fileSize.bits)          // -> 81920
@@ -93,7 +93,7 @@ console.log(f.toString()) // -> 5.020549774169922 GB
 `Pluralize` pluralizes the provided input while taking irregular and uncountable words into consideration:
 
 ```ts
-import "https://deno.land/x/humanizer.ts/vocabularies.ts"
+import "https://deno.land/x/humanizer/vocabularies.ts"
 
 "Man".pluralize()       // -> Men
 "string".pluralize()    // -> "strings"
@@ -112,7 +112,7 @@ import "https://deno.land/x/humanizer.ts/vocabularies.ts"
 ## <a id="ordinalize">Ordinalize</a>
 
 ```ts
-import "https://deno.land/x/humanizer.ts/ordinalize.ts"
+import "https://deno.land/x/humanizer/ordinalize.ts"
 
 (1).ordinalize() => "1st"
 (5).ordinalize() => "5th"
@@ -121,7 +121,7 @@ import "https://deno.land/x/humanizer.ts/ordinalize.ts"
 ## <a id="toquantity">ToQuantity</a>
 
 ```ts
-import "https://deno.land/x/humanizer.ts/toQuantity.ts"
+import "https://deno.land/x/humanizer/toQuantity.ts"
 
 "case".toQuantity(0) => "0 cases"
 "case".toQuantity(1) => "1 case"
@@ -153,7 +153,7 @@ You can also pass a second argument, `ShowQuantityAs`, to `toQuantity` to specif
 Humanizer provides a fluent API that produces (usually big) numbers in a clearer fashion:
 
 ```ts
-import "https://deno.land/x/humanizer.ts/numberToNumbers.ts"
+import "https://deno.land/x/humanizer/numberToNumbers.ts"
 
 (1.25).Billions() => 1250000000
 (3).Hundreds().Thousands() => 300000
@@ -164,7 +164,7 @@ import "https://deno.land/x/humanizer.ts/numberToNumbers.ts"
 Humanizer can change numbers to words using the `toWords` extension:
 
 ```ts
-import "https://deno.land/x/humanizer.ts/numberToWords.ts"
+import "https://deno.land/x/humanizer/numberToWords.ts"
 
 (1).toWords() => "one"
 (10).toWords() => "ten"
@@ -176,7 +176,7 @@ import "https://deno.land/x/humanizer.ts/numberToWords.ts"
 ## Number to ordinal words
 
 ```ts
-import "https://deno.land/x/humanizer.ts/numberToWords.ts"
+import "https://deno.land/x/humanizer/numberToWords.ts"
 
 (0).toOrdinalWords() => "zeroth"
 (1).toOrdinalWords() => "first"
@@ -195,7 +195,7 @@ import "https://deno.land/x/humanizer.ts/numberToWords.ts"
 Humanizer can change numbers to Roman numerals using the `toRoman` extension. The numbers 1 to 10 can be expressed in Roman numerals as follows:
 
 ```ts
-import "https://deno.land/x/humanizer.ts/romanNumerals.ts"
+import "https://deno.land/x/humanizer/romanNumerals.ts"
 
 (1).toRoman() => "I"
 (2).toRoman() => "II"
@@ -224,7 +224,7 @@ Also the reverse operation using the `fromRoman` extension.
 Humanizer can change numbers to Metric numerals using the `toMetric` extension. The numbers 1, 1230 and 0.1 can be expressed in Metric numerals as follows:
 
 ```ts
-import "https://deno.land/x/humanizer.ts/metricNumerals.ts"
+import "https://deno.land/x/humanizer/metricNumerals.ts"
 
 (1).toMetric() => "1"
 (1230).toMetric() => "1.23k"
